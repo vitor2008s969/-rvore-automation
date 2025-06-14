@@ -1,39 +1,30 @@
 function setupBookOptions() {
-  const books = document.querySelectorAll('.book-item'); // Ajuste conforme o seletor real
-  
+  // Seleciona todos os livros (ajuste o seletor conforme a Árvore)
+  const books = document.querySelectorAll('.book-item'); 
+
   books.forEach(book => {
-    const bookId = book.getAttribute('data-id') || Math.random().toString(36).substr(2, 9);
-    
-    // Adiciona botões de ação
-    const actionsDiv = document.createElement('div');
-    actionsDiv.className = 'automation-actions';
-    actionsDiv.innerHTML = `
-      <button class="auto-read-btn" data-id="${bookId}">Ler Automaticamente</button>
-      <button class="answer-questions-btn" data-id="${bookId}">Responder Questões</button>
+    const bookId = book.dataset.id || Math.random().toString(36).substr(2, 9);
+    book.innerHTML += `
+      <div class="automation-actions">
+        <button class="auto-read-btn" data-id="${bookId}">📖 Ler Automaticamente</button>
+        <button class="answer-questions-btn" data-id="${bookId}">📝 Responder Questões</button>
+      </div>
     `;
-    
-    book.appendChild(actionsDiv);
   });
-  
+
   // Event listeners para os botões
   document.addEventListener('click', (e) => {
     if (e.target.classList.contains('auto-read-btn')) {
-      const bookId = e.target.getAttribute('data-id');
-      startAutoReading(bookId);
+      startAutoReading(e.target.dataset.id);
     } else if (e.target.classList.contains('answer-questions-btn')) {
-      const bookId = e.target.getAttribute('data-id');
-      answerBookQuestions(bookId);
+      answerBookQuestions(e.target.dataset.id);
     }
   });
 }
 
 function startAutoReading(bookId) {
-  // Simular progresso de leitura
-  simulateReadingProgress(bookId);
-  
-  // Atualizar interface após "leitura"
+  console.log(`📚 Simulando leitura do livro ${bookId}...`);
   setTimeout(() => {
-    alert(`Livro ${bookId} marcado como lido 100% em 40 minutos!`);
-    window.location.reload(); // Atualiza a página para mostrar o status
+    alert(`✅ Livro marcado como 100% lido em ${config.readingTime} minutos!`);
   }, 2000);
-        }
+}
