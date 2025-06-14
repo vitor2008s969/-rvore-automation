@@ -37,7 +37,7 @@ function autoLogin() {
     alert('❌ Campo de código não encontrado. Acesse manualmente primeiro.');
   }
 }
-/
+
 // Código do books.js aqui
 function setupBookOptions() {
   // Seleciona todos os livros (ajuste o seletor conforme a Árvore)
