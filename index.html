@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Instalar Bookmarklet Árvore Livros</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; }
+        a { display: inline-block; padding: 10px 15px; background: #4285f4; color: white; 
+            text-decoration: none; border-radius: 4px; margin: 10px 0; }
+    </style>
+</head>
+<body>
+    <h1>Instalar Automação Árvore Livros</h1>
+    <p>Arraste este link para sua barra de favoritos:</p>
+    
+    <a href="javascript:(function(){const%20e={readingTime:40,completionPercentage:100};function%20t(){return%20window.location.href.includes(%22livros.arvore.com.br/biblioteca%22)}function%20n(){window.location.href.includes(%22auth/sso/seduc_sp%22)||(e=prompt(%22%F0%9F%94%91%20Insira%20seu%20c%C3%B3digo%20de%20acesso%20da%20%C3%81rvore%20(ex:%20VHR6573):%22),e&&(t=document.querySelector('input[type=%22text%22][name=%22access_code%22]'))&&(t.value=e,t.form.submit())}function%20o(){document.querySelectorAll(%22.book-item,%20.book-card%22).forEach(e=>{e.querySelector(%22.automation-actions%22)||(t=e.dataset.id||Math.random().toString(36).substr(2,9),e.insertAdjacentHTML(%22beforeend%22,'%3Cdiv%20class=%22automation-actions%22%20style=%22margin-top:%2010px;%22%3E%3Cbutton%20class=%22auto-read-btn%22%20data-id=%22'+t+'%22%20style=%22padding:%205px%2010px;%20background:%20%234285f4;%20color:%20white;%20border:%20none;%20border-radius:%204px;%20cursor:%20pointer;%22%3E%F0%9F%93%96
