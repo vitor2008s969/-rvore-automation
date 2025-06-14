@@ -1,31 +1,23 @@
-// Configurações básicas
+// Configurações
 const config = {
-  readingTime: 40, // minutos
+  readingTime: 40, // Minutos simulados
   completionPercentage: 100
 };
 
-// Inicialização do script
+// Inicialização
 function initAutomation() {
-  if (isLeiaSPPage()) {
-    setupUI();
-    
-    if (isLoginPage()) {
-      autoLogin();
-    } else if (isBooksPage()) {
-      setupBookOptions();
-    } else if (isReadingPage()) {
-      autoReadBook();
-    } else if (isQuestionsPage()) {
-      answerQuestions();
-    }
+  if (isArvorePage()) {
+    if (isLoginPage()) autoLogin();
+    else if (isBooksPage()) setupBookOptions();
+    else if (isReadingPage()) autoReadBook();
+    else if (isQuestionsPage()) answerQuestions();
   }
 }
 
-// Verifica se está no domínio correto
-function isLeiaSPPage() {
-  return window.location.hostname.includes('leiasp.cupiditys.lol') || 
-         window.location.hostname.includes('livros.arvore.com.br');
+// Verifica se está na Árvore Livros
+function isArvorePage() {
+  return window.location.href.includes('livros.arvore.com.br');
 }
 
-// Inicializa quando o DOM estiver pronto
+// Executa quando a página carrega
 document.addEventListener('DOMContentLoaded', initAutomation);
